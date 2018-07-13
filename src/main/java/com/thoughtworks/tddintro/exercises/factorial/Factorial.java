@@ -18,6 +18,10 @@ public class Factorial {
             return 6;
         }
 
+        if (i < 0) {
+            throw new IllegalArgumentException();
+        }
+
         return -1;
     }
 }
