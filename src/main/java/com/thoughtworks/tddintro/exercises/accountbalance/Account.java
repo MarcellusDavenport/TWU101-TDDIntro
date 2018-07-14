@@ -13,5 +13,6 @@ public class Account {
     }
 
     public void depositMoney(int i) {
+        this.balance += i;
     }
 }
