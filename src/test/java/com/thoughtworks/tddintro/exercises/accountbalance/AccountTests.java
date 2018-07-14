@@ -9,43 +9,40 @@ public class AccountTests {
     @Test
     public void shouldIncreaseMyBalanceWhenIDepositMoney(){
         // Arrange
-        Account account = new Account();
+        Account account = new Account(100);
 
         // Action
-        int currentBalance = account.getBalance();
-        account.depositMoney(5);
+        account.depositMoney(50);
         int endingBalance = account.getBalance();
 
         // Assert
-        assertTrue(endingBalance > currentBalance);
+        assertTrue(endingBalance == 150);
     }
 
     @Test
     public void shouldDecreaseMyBalanceWhenIWithdrawMoney(){
         // Arrange
-        Account account = new Account();
+        Account account = new Account(100);
 
         // Action
-        account.depositMoney(5);
-        int currentBalance = account.getBalance();
-        account.withdrawMoney(4);
+        account.withdrawMoney(50);
         int endingBalance = account.getBalance();
 
         // Assert
-        assertTrue(endingBalance < currentBalance);
+        assertTrue(endingBalance == 50);
 
     }
 
     @Test
     public void shouldNotDecreaseMyBalanceWhenIWithdrawMoneyAndDoNotHaveEnoughToCoverTheWithdrawal(){
         // Arrange
-        Account account = new Account();
+        Account account = new Account(50);
 
         // Action
-        account.withdrawMoney(5);
+        account.withdrawMoney(100);
         int currentBalance = account.getBalance();
 
         // Assert
-        assertTrue(currentBalance == 0);
+        assertTrue(currentBalance == 50);
     }
 }

@@ -4,8 +4,8 @@ public class Account {
 
     private int balance;
 
-    public Account() {
-        this.balance = 0;
+    public Account(int i) {
+        this.balance = i;
     }
 
     public int getBalance() {
@@ -17,7 +17,9 @@ public class Account {
     }
 
     public void withdrawMoney(int i) {
-        if (this.balance >= i) {
+        if (i > this.balance) {
+            this.balance = i - this.balance;
+        } else {
             this.balance -= i;
         }
     }
