@@ -26,8 +26,9 @@ public class AccountTests {
         Account account = new Account();
 
         // Action
+        account.depositMoney(5);
         int currentBalance = account.getBalance();
-        account.withdrawMoney(5);
+        account.withdrawMoney(4);
         int endingBalance = account.getBalance();
 
         // Assert
@@ -37,6 +38,14 @@ public class AccountTests {
 
     @Test
     public void shouldNotDecreaseMyBalanceWhenIWithdrawMoneyAndDoNotHaveEnoughToCoverTheWithdrawal(){
+        // Arrange
+        Account account = new Account();
 
+        // Action
+        account.withdrawMoney(5);
+        int currentBalance = account.getBalance();
+
+        // Assert
+        assertTrue(currentBalance == 0);
     }
 }
